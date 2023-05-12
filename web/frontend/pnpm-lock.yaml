@@ -46,8 +46,8 @@ devDependencies:
     specifier: ^2.6.0
     version: 2.6.0
   vi-fetch:
-    specifier: ^0.6.1
-    version: 0.6.1
+    specifier: ^0.8.0
+    version: 0.8.0
 
 packages:
 
@@ -2145,8 +2145,8 @@ packages:
       strip-ansi: 6.0.1
     dev: false
 
-  /tinyspy@0.3.3:
-    resolution: {integrity: sha512-gRiUR8fuhUf0W9lzojPf1N1euJYA30ISebSfgca8z76FOvXtVXqd5ojEIaKLWbDQhAaC3ibxZIjqbyi4ybjcTw==}
+  /tinyspy@1.1.1:
+    resolution: {integrity: sha512-UVq5AXt/gQlti7oxoIg5oi/9r0WpF7DGEVwXgqWSMmyN16+e3tl5lIvTaOpJ3TAtu5xFzWccFRM4R5NaWHF+4g==}
     engines: {node: '>=14.0.0'}
     dev: true
 
@@ -2250,11 +2250,11 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: false
 
-  /vi-fetch@0.6.1:
-    resolution: {integrity: sha512-NlO/xVHil9Emz3Nc5PwQXlugt09tAn601AW+E0DZLA5z+Tu7s9b1eGF9iFtn3sNMYxq18dYGZADS2YMIOYolBQ==}
+  /vi-fetch@0.8.0:
+    resolution: {integrity: sha512-uvEgEBTacSnlxRcoA56Drwkc2LbTvRNOdSx5MVayBfEsHAgQJAu+LwePlUOkidFsqQMcQxcb+LlC9qZ9v1yXiw==}
     dependencies:
       query-string: 7.1.3
-      tinyspy: 0.3.3
+      tinyspy: 1.1.1
     dev: true
 
   /vite@4.3.5:
