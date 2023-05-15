@@ -1,7 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 import { NavigationMenu } from "@shopify/app-bridge-react";
 import Routes from "./Routes";
-import type {Route} from "./Routes";
+import type { Route } from "./Routes";
 
 import {
   AppBridgeProvider,
@@ -30,6 +30,10 @@ export default function App() {
                 {
                   label: "Page name",
                   destination: "/pagename",
+                },
+                {
+                  label: "Sandbox",
+                  destination: "/sandbox",
                 },
               ]}
             />
