@@ -1,9 +1,7 @@
+import type { WebhookHandlersParam } from "@shopify/shopify-app-express";
 import { DeliveryMethod } from "@shopify/shopify-api";
 
-/**
- * @type {{[key: string]: import("@shopify/shopify-api").WebhookHandler}}
- */
-export default {
+const GDPRWebhookHandlers: WebhookHandlersParam = {
   /**
    * Customers can request their data from a store owner. When this happens,
    * Shopify invokes this webhook.
@@ -84,3 +82,5 @@ export default {
     },
   },
 };
+
+export default GDPRWebhookHandlers;

@@ -3,9 +3,9 @@ import { readFileSync } from "fs";
 import express from "express";
 import serveStatic from "serve-static";
 
-import shopify from "./shopify.js";
+import shopify from "./shopify";
 import productCreator from "./product-creator.js";
-import GDPRWebhookHandlers from "./gdpr.js";
+import GDPRWebhookHandlers from "./gdpr";
 
 const PORT = parseInt(
   process.env.BACKEND_PORT || process.env.PORT || "3000",
