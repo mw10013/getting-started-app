@@ -4,7 +4,7 @@ import express from "express";
 import serveStatic from "serve-static";
 
 import shopify from "./shopify";
-import productCreator from "./product-creator.js";
+import productCreator from "./product-creator";
 import GDPRWebhookHandlers from "./gdpr";
 
 const PORT = parseInt(
