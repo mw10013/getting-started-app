@@ -5,8 +5,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "debug": "node --inspect-brk index.js",
-    "dev": "cross-env NODE_ENV=development nodemon --experimental-specifier-resolution=node index.js",
-    "serve": "cross-env NODE_ENV=production node --experimental-specifier-resolution=node index.js"
+    "dev": "cross-env NODE_ENV=development nodemon --experimental-specifier-resolution=node index.ts",
+    "serve": "cross-env NODE_ENV=production node --experimental-specifier-resolution=node index.ts"
   },
   "type": "module",
   "engines": {
