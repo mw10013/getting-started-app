@@ -1,12 +1,12 @@
 import {
-  Card,
   Page,
   Layout,
-  TextContainer,
   Image,
-  Stack,
+  LegacyStack,
   Link,
   Text,
+  LegacyCard,
+  VerticalStack,
 } from "@shopify/polaris";
 import { TitleBar } from "@shopify/app-bridge-react";
 
@@ -20,15 +20,15 @@ export default function HomePage() {
       <TitleBar title="App name" primaryAction={null} />
       <Layout>
         <Layout.Section>
-          <Card sectioned>
-            <Stack
+          <LegacyCard sectioned>
+            <LegacyStack
               wrap={false}
               spacing="extraTight"
               distribution="trailing"
               alignment="center"
             >
-              <Stack.Item fill>
-                <TextContainer spacing="loose">
+              <LegacyStack.Item fill>
+                <VerticalStack>
                   <Text as="h2" variant="headingMd">
                     Nice work on building a Shopify app 🎉
                   </Text>
@@ -65,9 +65,9 @@ export default function HomePage() {
                     </Link>{" "}
                     📚{" "}
                   </p>
-                </TextContainer>
-              </Stack.Item>
-              <Stack.Item>
+                </VerticalStack>
+              </LegacyStack.Item>
+              <LegacyStack.Item>
                 <div style={{ padding: "0 20px" }}>
                   <Image
                     source={trophyImage}
@@ -75,9 +75,9 @@ export default function HomePage() {
                     width={120}
                   />
                 </div>
-              </Stack.Item>
-            </Stack>
-          </Card>
+              </LegacyStack.Item>
+            </LegacyStack>
+          </LegacyCard>
         </Layout.Section>
         <Layout.Section>
           <ProductsCard />
