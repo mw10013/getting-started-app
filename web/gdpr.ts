@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { WebhookHandlersParam } from "@shopify/shopify-app-express";
 import { DeliveryMethod } from "@shopify/shopify-api";
 
