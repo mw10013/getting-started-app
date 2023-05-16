@@ -35,6 +35,10 @@ export default function App() {
                   label: "Sandbox",
                   destination: "/sandbox",
                 },
+                {
+                  label: "Fee",
+                  destination: "/fee",
+                },
               ]}
             />
             <Routes pages={pages} />
