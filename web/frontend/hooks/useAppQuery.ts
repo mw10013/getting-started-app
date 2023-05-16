@@ -14,13 +14,18 @@ import { useQuery } from "react-query";
  *
  * @returns Return value of useQuery.  See: https://react-query.tanstack.com/reference/useQuery.
  */
-export const useAppQuery = ({ url, fetchInit = {}, reactQueryOptions }) => {
+export const useAppQuery = ({ url, fetchInit = {}, reactQueryOptions }: {
+  url: string;
+  fetchInit?: RequestInit | undefined;
+  reactQueryOptions: Parameters<typeof useQuery<unknown, unknown, unknown, string>>[2]
+}) => {
   const authenticatedFetch = useAuthenticatedFetch();
   const fetch = useMemo(() => {
     return async () => {
       const response = await authenticatedFetch(url, fetchInit);
       return response.json();
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url, JSON.stringify(fetchInit)]);
 
   return useQuery(url, fetch, {

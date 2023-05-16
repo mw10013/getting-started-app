@@ -63,7 +63,7 @@ export function ProductsCard() {
           <Text as="h4" variant="headingMd">
             TOTAL PRODUCTS
             <Text variant="bodyMd" as="p" fontWeight="semibold">
-              {isLoadingCount ? "-" : data.count}
+              {isLoadingCount ? "-" : (data as {count: number}).count}
             </Text>
           </Text>
         </VerticalStack>
