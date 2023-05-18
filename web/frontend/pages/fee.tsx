@@ -2,8 +2,11 @@ import { useState } from "react";
 import { Page, Layout, LegacyCard, List } from "@shopify/polaris";
 import { TitleBar, Toast } from "@shopify/app-bridge-react";
 import { stringify } from "querystring";
+import { ProductsCard } from "../components";
+import { useAuthenticatedFetch } from "../hooks";
 
 export default function Fee() {
+  const fetch = useAuthenticatedFetch();
   const emptyToastProps = { content: "" };
   const [toastProps, setToastProps] = useState<{
     content: string;
@@ -64,6 +67,7 @@ export default function Fee() {
             </List>
           </LegacyCard.Section>
         </LegacyCard>
+        <ProductsCard />
       </Layout>
     </Page>
   );

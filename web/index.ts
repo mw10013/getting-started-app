@@ -65,6 +65,7 @@ app.get("/api/products/create", async (_req, res) => {
 app.use(shopify.cspHeaders());
 app.use(serveStatic(STATIC_PATH, { index: false }));
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 app.use("/*", shopify.ensureInstalledOnShop(), async (_req, res, _next) => {
   return res
     .status(200)
