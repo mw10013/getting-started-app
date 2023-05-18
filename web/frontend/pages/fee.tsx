@@ -1,27 +1,19 @@
-import {
-  Page,
-  Layout,
-  Text,
-  LegacyCard,
-  VerticalStack,
-  Box,
-  HorizontalGrid,
-  AlphaCard,
-  SkeletonDisplayText,
-  Bleed,
-  Divider,
-  SkeletonBodyText,
-  BoxProps,
-  List,
-} from "@shopify/polaris";
-import { TitleBar } from "@shopify/app-bridge-react";
-import {
-  ArchiveMinor,
-  DeleteMinor,
-  DuplicateMinor,
-} from "@shopify/polaris-icons";
+import { useState } from "react";
+import { Page, Layout, LegacyCard, List } from "@shopify/polaris";
+import { TitleBar, Toast } from "@shopify/app-bridge-react";
+import { stringify } from "querystring";
 
 export default function Fee() {
+  const emptyToastProps = { content: "" };
+  const [toastProps, setToastProps] = useState<{
+    content: string;
+    error?: boolean;
+  }>(emptyToastProps);
+
+  const toastMarkup = toastProps.content && (
+    <Toast {...toastProps} onDismiss={() => setToastProps(emptyToastProps)} />
+  );
+
   return (
     <Page>
       <TitleBar
@@ -31,11 +23,15 @@ export default function Fee() {
           onAction: () => console.log("Primary action"),
         }}
       />
+      {toastMarkup}
       <Layout sectioned>
         <LegacyCard
           title="Fee"
           secondaryFooterActions={[{ content: "Edit shipment" }]}
-          primaryFooterAction={{ content: "Generate" }}
+          primaryFooterAction={{
+            content: "Generate",
+            onAction: () => setToastProps({ content: "Yowsa!" }),
+          }}
         >
           <LegacyCard.Section title="Items">
             <List>
