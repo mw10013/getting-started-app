@@ -12,6 +12,7 @@ import {
   Divider,
   SkeletonBodyText,
   BoxProps,
+  List,
 } from "@shopify/polaris";
 import { TitleBar } from "@shopify/app-bridge-react";
 import {
@@ -31,11 +32,17 @@ export default function Fee() {
         }}
       />
       <Layout sectioned>
-        <LegacyCard title="Online store dashboard" sectioned>
-          <p>View a summary of your online store’s performance.</p>
-        </LegacyCard>
-        <LegacyCard title="Online store dashboard 2" sectioned>
-          <p>View a summary of your online store’s performance.</p>
+        <LegacyCard
+          title="Fee"
+          secondaryFooterActions={[{ content: "Edit shipment" }]}
+          primaryFooterAction={{ content: "Generate" }}
+        >
+          <LegacyCard.Section title="Items">
+            <List>
+              <List.Item>1 × Oasis Glass, 4-Pack</List.Item>
+              <List.Item>1 × Anubis Cup, 2-Pack</List.Item>
+            </List>
+          </LegacyCard.Section>
         </LegacyCard>
       </Layout>
     </Page>
