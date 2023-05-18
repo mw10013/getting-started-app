@@ -24,13 +24,20 @@ export default function Fee() {
   return (
     <Page>
       <TitleBar
-        title="TitleBar"
+        title="Fee"
         primaryAction={{
           content: "Click Me",
           onAction: () => console.log("Primary action"),
         }}
       />
-      <div>W'sup</div>
+      <Layout sectioned>
+        <LegacyCard title="Online store dashboard" sectioned>
+          <p>View a summary of your online store’s performance.</p>
+        </LegacyCard>
+        <LegacyCard title="Online store dashboard 2" sectioned>
+          <p>View a summary of your online store’s performance.</p>
+        </LegacyCard>
+      </Layout>
     </Page>
   );
 }
