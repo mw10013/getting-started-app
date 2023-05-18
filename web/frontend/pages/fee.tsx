@@ -14,13 +14,37 @@ export default function Fee() {
     <Toast {...toastProps} onDismiss={() => setToastProps(emptyToastProps)} />
   );
 
+  const handleGenerate = async () => {
+    const response = await fetch("/api/products/count");
+    if (response.ok) {
+      setToastProps({ content: await response.text() });
+    } else {
+      console.log({ response });
+      setToastProps({ content: "Generate error", error: true });
+    }
+
+    // setIsLoading(true);
+    // const response = await fetch("/api/products/create");
+
+    // if (response.ok) {
+    //   await refetchProductCount();
+    //   setToastProps({ content: "5 products created!", error: false });
+    // } else {
+    //   setIsLoading(false);
+    //   setToastProps({
+    //     content: "There was an error creating products",
+    //     error: true,
+    //   });
+    // }
+  };
+
   return (
     <Page>
       <TitleBar
         title="Fee"
         primaryAction={{
           content: "Click Me",
-          onAction: () => console.log("Primary action"),
+          onAction: () => setToastProps({ content: "Clicked!" }),
         }}
       />
       {toastMarkup}
@@ -30,7 +54,7 @@ export default function Fee() {
           secondaryFooterActions={[{ content: "Edit shipment" }]}
           primaryFooterAction={{
             content: "Generate",
-            onAction: () => setToastProps({ content: "Yowsa!" }),
+            onAction: handleGenerate,
           }}
         >
           <LegacyCard.Section title="Items">
