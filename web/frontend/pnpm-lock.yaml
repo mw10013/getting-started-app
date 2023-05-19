@@ -7,9 +7,6 @@ dependencies:
   '@shopify/app-bridge-react':
     specifier: ^3.1.0
     version: 3.1.0(react@18.2.0)
-  '@shopify/app-bridge-utils':
-    specifier: ^3.5.1
-    version: 3.5.1
   '@shopify/polaris':
     specifier: ^10.49.1
     version: 10.49.1(react-dom@18.2.0)(react@18.2.0)
@@ -654,13 +651,6 @@ packages:
     dependencies:
       '@shopify/app-bridge': 3.7.7
       react: 18.2.0
-    dev: false
-
-  /@shopify/app-bridge-utils@3.5.1:
-    resolution: {integrity: sha512-VZRvRfg1nF/0/C7zIwYlQ2RXY2S7ALw04Lp6vXPkzBxggDYakx9Lbvc5/k7ZTvhwZv2q8+FVHh319IMW81b27Q==}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
-    dependencies:
-      '@shopify/app-bridge': 3.7.7
     dev: false
 
   /@shopify/app-bridge@3.7.7:
