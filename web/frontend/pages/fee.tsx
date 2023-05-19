@@ -18,7 +18,7 @@ export default function Fee() {
   );
 
   const handleGenerate = async () => {
-    const response = await fetch("/api/products/count");
+    const response = await fetch("/api/feefifo");
     if (response.ok) {
       setToastProps({ content: await response.text() });
     } else {
