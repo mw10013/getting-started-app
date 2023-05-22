@@ -1,5 +1,6 @@
 import {
   BrowserRouter,
+  Outlet,
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
@@ -12,15 +13,19 @@ import {
   PolarisProvider,
 } from "./components";
 
-const router = createBrowserRouter([{ path: "*", Component: Root }]);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    // children: [{ path: "*", Component: Root }],
+    children: [
+      { path: "fi", element: <div>Fi</div>},
+      { path: "fo", element: <div>Fo</div>},
+      { path: "*", Component: OldRoutes }],
+  },
+]);
 
 function Root() {
-  const pages = import.meta.glob<Route>(
-    "./pages/**/!(*.test.[jt]sx)*.([jt]sx)",
-    {
-      eager: true,
-    }
-  );
   return (
     <AppBridgeProvider>
       <QueryProvider>
@@ -38,30 +43,49 @@ function Root() {
               label: "Fee",
               destination: "/fee",
             },
+            {
+              label: "Fi",
+              destination: "/fi",
+            },
+            {
+              label: "Fo",
+              destination: "/fo",
+            },
           ]}
         />
-        <Routes pages={pages} />
+        <div>Yowsa</div>
+        <Outlet />
       </QueryProvider>
     </AppBridgeProvider>
   );
 }
 
-export default function App() {
-  // Any .tsx or .jsx files in /pages will become a route
-  // See documentation for <Routes /> for more info
-  // const pages = import.meta.globEager("./pages/**/!(*.test.[jt]sx)*.([jt]sx)");
+function OldRoutes() {
   const pages = import.meta.glob<Route>(
     "./pages/**/!(*.test.[jt]sx)*.([jt]sx)",
     {
       eager: true,
     }
   );
+  return <Routes pages={pages} />;
+}
+
+export default function App() {
+  // Any .tsx or .jsx files in /pages will become a route
+  // See documentation for <Routes /> for more info
+  // const pages = import.meta.globEager("./pages/**/!(*.test.[jt]sx)*.([jt]sx)");
+  // const pages = import.meta.glob<Route>(
+  //   "./pages/**/!(*.test.[jt]sx)*.([jt]sx)",
+  //   {
+  //     eager: true,
+  //   }
+  // );
 
   return (
     <PolarisProvider>
       {/* <BrowserRouter> */}
       <RouterProvider router={router} />
-        {/* <AppBridgeProvider>
+      {/* <AppBridgeProvider>
           <QueryProvider>
             <NavigationMenu
               navigationLinks={[
@@ -82,7 +106,7 @@ export default function App() {
             <Routes pages={pages} />
           </QueryProvider>
         </AppBridgeProvider> */}
-        {/* </BrowserRouter> */}
+      {/* </BrowserRouter> */}
     </PolarisProvider>
   );
 }
